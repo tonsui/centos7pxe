@@ -63,14 +63,13 @@ tftp
 		default menu.c32
 		prompt 0
 		timeout 50
-		MENU TITLE SiS PXE
+		menu title PXE
 
 		label CentOS 7
 
 		menu label york
-		kernel memdisk
-		initrd win10pe1803.iso
-		append iso raw
+		kernel ipxe.lkrn
+		append dhcp && initrd http://10.1.1.1/win10pe1803.iso && chain memdisk iso raw
 
 set static ip
 	01. sudo vi /etc/sysconfig/network-scripts/ifcfg-enp1s0
